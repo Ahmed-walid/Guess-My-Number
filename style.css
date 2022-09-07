@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #222;
+  color: #eee;
+  font-family: "Press Start 2P", sans-serif;
+}
+
+.nav {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+.one-twenty{
+    font-size: 30px;
+    padding-top: 20px;
+}
+h1 {
+  text-align: center;
+  margin: 80px;
+  font-size: 70px;
+}
+
+.seperator {
+  position: relative;
+  height: 130px;
+  margin-top: 30px;
+}
+
+#question-mark {
+  width: 220px;
+  height: 210px;
+  background-color: #eee;
+  color: #222;
+  font-size: 110px;
+  text-align: center;
+  position: absolute;
+  right: 50%;
+  top:50%;
+  padding: 40px;
+  padding-top: 50px;
+  margin-right: -110px;
+  margin-top: -105px;
+}
+
+hr {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 12px;
+  z-index: -1;
+  background-color: #eee;
+}
+
+.btn {
+  height: 10vh;
+  width: 14vw;
+  background-color: #eee;
+  font-size: 32px;
+  color:#222;
+  padding: 20px;
+  font-family: inherit;
+}
+
+main {
+  margin-top: 100px;
+}
+
+.input-sec {
+  float: left;
+  height: 100%;
+  width: 50%;
+}
+
+.score-sec {
+  float: left;
+  height: 100%;
+  width: 50%;
+}
+
+.input-num {
+  display: block;
+  margin-left: 50%;
+  width: 20vw;
+  height: 15vh;
+  margin-left: calc(50% - 10vw);
+  margin-bottom: 50px;
+  font-size: 60px;
+  text-align: center;
+  background-color: #222;
+  color: #eee;
+  border: 7px solid #eee;
+  margin-top: 15px ;
+}
+.check {
+  display: block;
+  margin-left: calc(50% - 7vw);
+}
+
+.results{
+    padding-left: 150px;
+}
+
+.guessed {
+  font-size: 30px;
+  margin-bottom: 70px;
+  margin-top: 70px;
+}
+
+.result-num,
+.labels {
+  font-size: 30px;
+}
+.icon {
+  margin-right: 25px;
+  width: 35px;
+}

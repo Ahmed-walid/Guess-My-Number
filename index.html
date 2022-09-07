@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Ahmed Waleed" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Guess Game</title>
+  </head>
+  <body>
+    <header>
+
+        <nav class="nav">
+            <button class="btn again">Again!</button>
+            <span class="one-twenty">(Between 1 and 20)</span>
+        </nav>
+      <h1>Guess My Number!</h1>
+
+      <div class="seperator">
+        <span id="question-mark">?</span>
+        <hr />
+      </div>
+    </header>
+
+    <main>
+        <div class="input-sec">
+
+            <input type="number" class="input-num">
+            <button class="check btn">Check</button>
+
+        </div>
+        <div class="score-sec">
+                <div class="results">
+                  <p class="guessed">Start guessing...</p>
+                    <img src="https://cdn-icons-png.flaticon.com/512/594/594917.png" alt="icon" class="icon">
+                    <label for="score" class="labels">Score: </label>
+                    <span class="result-num">20</span>
+                    <br> <br> <br> <br>
+                    <img src="https://cdn-icons-png.flaticon.com/512/2583/2583344.png" alt="icon" class="icon">
+                    <label for="high-score" class="labels">Highscore: </label>
+                    <span class="result-num">0</span>
+                </div>
+        </div>
+    </main>
+  </body>
+
+  <script src="script.js"></script>
+</html>
