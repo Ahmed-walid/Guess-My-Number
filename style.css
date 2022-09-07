@@ -107,13 +107,14 @@ main {
     padding-left: 150px;
 }
 
-.guessed {
+.guessed-number {
   font-size: 30px;
   margin-bottom: 70px;
   margin-top: 70px;
 }
 
-.result-num,
+.score,
+.high-score,
 .labels {
   font-size: 30px;
 }
