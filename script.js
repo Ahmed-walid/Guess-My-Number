@@ -1,8 +1,7 @@
 "use strict";
 
-const upperLimits = [16, 32, 64, 128, 256];
 
-let upperLimit;
+let upperLimit =16;
 let score;
 let highScore;
 let secretNumber;
@@ -20,16 +19,18 @@ document.querySelector(".check").addEventListener("click", function () {
   else if (guess != secretNumber) {
     score -= decrementValue;
     if (score <= 0){
+      upperLimit /= 2;
         document.querySelector(".assistant").innerHTML =
-        "Game Over 💥 <wbr><a target='_blank' href='https://www.geeksforgeeks.org/binary-search/'>BinarySearch?</a><wbr>";
+        "Game Over 💥 Level Down!";
         document.querySelector("body").style.backgroundColor = "#b50000";
       }    else if (guess > secretNumber)
       document.querySelector(".assistant").textContent = "Guess is too high!";
     else if (guess < secretNumber)
       document.querySelector(".assistant").textContent = "Guess is too low!";
   } else {
+    upperLimit *= 2;
     document.querySelector(".assistant").textContent =
-      "🎉 Correct guess, Congrats!";
+      "🎉 Correct guess, Congrats!. Level Up!";
     highScore = Math.max(highScore, score);
     document.querySelector(".high-score").textContent = highScore;
     document.querySelector("#question-mark").textContent = secretNumber;
@@ -43,7 +44,8 @@ document.querySelector(".check").addEventListener("click", function () {
 document.querySelector(".again").addEventListener("click", init);
 
 function init() {
-  upperLimit = upperLimits[Math.trunc(Math.random() * upperLimits.length)];
+  upperLimit = Math.min(1048576,upperLimit);
+  upperLimit = Math.max(16,upperLimit);
   score = Math.trunc(Math.ceil(Math.log2(upperLimit))) * decrementValue;
   secretNumber = Math.trunc(Math.random() * upperLimit) + 1
   highScore = 0;
