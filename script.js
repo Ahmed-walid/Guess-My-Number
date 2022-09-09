@@ -56,5 +56,5 @@ function init() {
   document.querySelector(".guess").value = "";
   document.querySelector(".assistant").textContent = "Start guessing...";
   secretNumber = Math.trunc(Math.random() * upperLimit) + 1;
-  console.log(secretNumber);
+  // console.log(secretNumber);
 }
