@@ -3,7 +3,7 @@
 
 let upperLimit =16;
 let score;
-let highScore;
+let highScore = 0;
 let secretNumber;
 const decrementValue = 20;
 
@@ -44,11 +44,10 @@ document.querySelector(".check").addEventListener("click", function () {
 document.querySelector(".again").addEventListener("click", init);
 
 function init() {
-  upperLimit = Math.min(1048576,upperLimit);
+  upperLimit = Math.min(16384,upperLimit);
   upperLimit = Math.max(16,upperLimit);
   score = Math.trunc(Math.ceil(Math.log2(upperLimit))) * decrementValue;
   secretNumber = Math.trunc(Math.random() * upperLimit) + 1
-  highScore = 0;
   document.querySelector(".one-twenty").textContent = `(Between 1 and ${upperLimit})`;
   document.querySelector("body").style.backgroundColor = "#222";
   document.querySelector(".score").textContent = score;
@@ -57,4 +56,5 @@ function init() {
   document.querySelector(".guess").value = "";
   document.querySelector(".assistant").textContent = "Start guessing...";
   secretNumber = Math.trunc(Math.random() * upperLimit) + 1;
+  console.log(secretNumber);
 }
