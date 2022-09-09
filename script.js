@@ -1,8 +1,11 @@
 "use strict";
 
-let score = 100;
-let highScore = 0;
-let secretNumber = Math.trunc(Math.random() * 20) + 1;
+const upperLimits = [16, 32, 64, 128, 256];
+
+let upperLimit;
+let score;
+let highScore;
+let secretNumber;
 const decrementValue = 20;
 
 init();
@@ -40,12 +43,16 @@ document.querySelector(".check").addEventListener("click", function () {
 document.querySelector(".again").addEventListener("click", init);
 
 function init() {
-  score = 100;
+  upperLimit = upperLimits[Math.trunc(Math.random() * upperLimits.length)];
+  score = Math.trunc(Math.ceil(Math.log2(upperLimit))) * decrementValue;
+  secretNumber = Math.trunc(Math.random() * upperLimit) + 1
+  highScore = 0;
+  document.querySelector(".one-twenty").textContent = `(Between 1 and ${upperLimit})`;
   document.querySelector("body").style.backgroundColor = "#222";
   document.querySelector(".score").textContent = score;
   document.querySelector("#question-mark").textContent = "?";
   document.querySelector("#question-mark").style.width = "220px";
   document.querySelector(".guess").value = "";
   document.querySelector(".assistant").textContent = "Start guessing...";
-  secretNumber = Math.trunc(Math.random() * 20) + 1;
+  secretNumber = Math.trunc(Math.random() * upperLimit) + 1;
 }
