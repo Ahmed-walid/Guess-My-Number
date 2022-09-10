@@ -28,6 +28,8 @@ checkBtn_.addEventListener("click", function () {
     score -= decrementValue;
     if (score <= 0) {
       upperLimit /= 2;
+      questionMark_.textContent = secretNumber;
+      questionMark_.style.width = "440px";
       assistant_.innerHTML = "Game Over 💥 Level Down!";
       body_.style.backgroundColor = "#b50000";
     } else if (guess > secretNumber)
