@@ -18,7 +18,28 @@ const checkBtn_ = document.querySelector(".check");
 
 init();
 
-checkBtn_.addEventListener("click", function () {
+checkBtn_.addEventListener("click", checkHandler);
+
+againBtn_.addEventListener("click", init);
+
+document.addEventListener("keypress", enterHandler);
+
+function init() {
+  upperLimit = Math.min(16384, upperLimit);
+  upperLimit = Math.max(16, upperLimit);
+  score = Math.trunc(Math.ceil(Math.log2(upperLimit))) * decrementValue;
+  secretNumber = Math.trunc(Math.random() * upperLimit) + 1;
+  headerStatment_.textContent = `(Between 1 and ${upperLimit})`;
+  body_.style.backgroundColor = "#222";
+  score_.textContent = score;
+  questionMark_.textContent = "?";
+  questionMark_.style.width = "220px";
+  guessInput_.value = "";
+  assistant_.textContent = "Start guessing...";
+  secretNumber = Math.trunc(Math.random() * upperLimit) + 1;
+}
+
+function checkHandler() {
   const guess = Number(guessInput_.value);
 
   if (score <= 0) return;
@@ -46,21 +67,9 @@ checkBtn_.addEventListener("click", function () {
   }
 
   score_.textContent = score;
-});
+}
 
-againBtn_.addEventListener("click", init);
-
-function init() {
-  upperLimit = Math.min(16384, upperLimit);
-  upperLimit = Math.max(16, upperLimit);
-  score = Math.trunc(Math.ceil(Math.log2(upperLimit))) * decrementValue;
-  secretNumber = Math.trunc(Math.random() * upperLimit) + 1;
-  headerStatment_.textContent = `(Between 1 and ${upperLimit})`;
-  body_.style.backgroundColor = "#222";
-  score_.textContent = score;
-  questionMark_.textContent = "?";
-  questionMark_.style.width = "220px";
-  guessInput_.value = "";
-  assistant_.textContent = "Start guessing...";
-  secretNumber = Math.trunc(Math.random() * upperLimit) + 1;
+function enterHandler(e) {
+  if(document.activeElement === guessInput_ && e.key === "Enter")
+    checkHandler();
 }
